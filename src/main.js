@@ -375,7 +375,7 @@ const render = (container, template, place = `beforeend`) => {
 
 const renderTasks = (container, template) => {
   for (let i = 0; i < TASK_COUNT; i++) {
-    render(container, template, place);
+    render(container, template);
   }
 };
 
