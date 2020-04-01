@@ -373,8 +373,8 @@ const render = (container, template, place = `beforeend`) => {
   container.insertAdjacentHTML(place, template);
 };
 
-const loopRender = (container, template, place = `beforeend`, repeats) => {
-  for (let i = 0; i < repeats; i++) {
+const renderTasks = (container, template) => {
+  for (let i = 0; i < TASK_COUNT; i++) {
     render(container, template, place);
   }
 };
@@ -390,5 +390,5 @@ const taskListElement = siteMainElement.querySelector(`.board__tasks`);
 const boardElement = siteMainElement.querySelector(`.board`);
 
 render(taskListElement, createTaskEditTemplate());
-loopRender(taskListElement, createTaskTemplate(), `beforeend`, TASK_COUNT);
+renderTasks(taskListElement, createTaskTemplate());
 render(boardElement, createLoadMoreButtonTemplate());
