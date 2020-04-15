@@ -1,12 +1,12 @@
-import {createBoardTemplate} from "./components/board.js";
-import {createFilterTemplate} from "./components/filter.js";
-import {createLoadMoreButtonTemplate} from "./components/load-more-button.js";
-import {createTaskEditTemplate} from "./components/task-edit.js";
-import {createTaskTemplate} from "./components/task.js";
-import {createSiteMenuTemplate} from "./components/site-menu.js";
-import {createSortingTemplate} from "./components/sorting.js";
-import {generateFilters} from "./mock/filter.js";
-import {generateTasks} from "./mock/task.js";
+import { createBoardTemplate } from "./components/board.js";
+import { createFilterTemplate } from "./components/filter.js";
+import { createLoadMoreButtonTemplate } from "./components/load-more-button.js";
+import { createTaskEditTemplate } from "./components/task-edit.js";
+import { createTaskTemplate } from "./components/task.js";
+import { createSiteMenuTemplate } from "./components/site-menu.js";
+import { createSortingTemplate } from "./components/sorting.js";
+import { generateFilters } from "./mock/filter.js";
+import { generateTasks } from "./mock/task.js";
 
 
 const TASK_COUNT = 22;
@@ -16,6 +16,7 @@ const SHOWING_TASKS_COUNT_BY_BUTTON = 8;
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
 };
+
 
 const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
@@ -42,7 +43,7 @@ render(boardElement, createLoadMoreButtonTemplate(), `beforeend`);
 
 const loadMoreButton = boardElement.querySelector(`.load-more`);
 
-loadMoreButton.addEventListener(`click`, () => {
+const loadMoreTasks = () => {
   const prevTasksCount = showingTasksCount;
   showingTasksCount = showingTasksCount + SHOWING_TASKS_COUNT_BY_BUTTON;
 
@@ -52,4 +53,6 @@ loadMoreButton.addEventListener(`click`, () => {
   if (showingTasksCount >= tasks.length) {
     loadMoreButton.remove();
   }
-});
+};
+
+loadMoreButton.addEventListener(`click`, loadMoreTasks);
