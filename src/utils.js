@@ -1,5 +1,3 @@
-//import { Template } from "webpack";
-
 export const RenderPosition = {
   AFTERBEGIN: `afterbegin`,
   BEFOREEND: `beforeend`
